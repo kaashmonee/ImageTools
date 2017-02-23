@@ -14,7 +14,9 @@
         <canvas id="myCanvas" width="500" height="500" style="border:1px solid #000000;"></canvas>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script>
+            alert("script works");
             var Jimp = require("jimp");
+            alert("doesn't work");
             var canvas = document.getElementById("myCanvas");
             var context = canvas.getContext("2d");
             var baseImage = new Image();
@@ -28,10 +30,11 @@
                     var yval = e.offsetY;
                     alert(xval + " " + yval);
                     var rgbarray;
-                    Jimp.read("/home/skanda/Discard/test.jpg", function(err, image) {
+                    Jimp.read("/home/skanda/Documents/image-tools/Images/test.jpg", function(err, image) {
                         if (err) throw err;
                         rgbarray = Jimp.intToRGBA(image.getPixelColor(xval, yval));
                     });
+
                     alert("R: " + rgbarray[0] + " G: " + rgbarray[1] + " B: " + rgbarray[2]);
                 });
             });
@@ -45,3 +48,4 @@
 </body>
 
 </html>
+>
